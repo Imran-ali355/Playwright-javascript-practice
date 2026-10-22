@@ -1,0 +1,11 @@
+{
+  "urls": {
+    "expectedSearchURL": "https://adactinhotelapp.com/SearchHotel.php",
+    "expectedSelectURL": "https://adactinhotelapp.com/SelectHotel.php",
+    "expectedBookURL": "https://adactinhotelapp.com/BookHotel.php",
+    "expectedConfirmURL": "https://adactinhotelapp.com/BookingConfirm.php",
+    "expectedItineraryURL": "https://adactinhotelapp.com/BookedItinerary.php",
+    "expectedLogoutURL": "https://adactinhotelapp.com/Logout.php",
+    "expectedindexURL": "https://adactinhotelapp.com/index.php"
+  }
+}

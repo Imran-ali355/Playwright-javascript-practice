@@ -1,0 +1,22 @@
+{
+  "name": "playwright-javascript-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "node -e \"const fs = require('node:fs'); for (const dir of ['allure-results', 'allure-report']) fs.rmSync(dir, { recursive: true, force: true });\"",
+    "test": "playwright test tests",
+    "posttest": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.13.0"
+  },
+  "dependencies": {
+    "open": "^11.0.4"
+  }
+}
