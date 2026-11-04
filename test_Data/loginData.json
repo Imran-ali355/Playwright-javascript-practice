@@ -1,6 +1,8 @@
 {
   "validUser": [
     {
+      "username": "haristester01",
+      "password": "haristester01",
       "expectedSearchURL": "https://adactinhotelapp.com/SearchHotel.php"
     }
   ],
