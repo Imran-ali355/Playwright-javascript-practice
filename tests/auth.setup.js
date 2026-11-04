@@ -3,6 +3,8 @@ import LoginPage from '../pages/LoginPage';
 import { getAdactinCredentials } from '../utils/test-credentials.js';
 const loginData = require('../test_Data/loginData.json');
 
+setup.use({ storageState: { cookies: [], origins: [] } });
+
 setup('authenticate', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const credentials = getAdactinCredentials();
