@@ -1,0 +1,1 @@
+{"attachments":[],"errors":[{"message":"afterEach hook failed: Error: page.click: Target crashed \nCall log:\n  - waiting for locator('text=Logout')\n","trace":"Error: page.click: Target crashed \nCall log:\n  - waiting for locator('text=Logout')\n\n    at C:\\Playwright-javascript-practice\\tests\\booking.spec.js:32:20","timestamp":1793779679634}]}

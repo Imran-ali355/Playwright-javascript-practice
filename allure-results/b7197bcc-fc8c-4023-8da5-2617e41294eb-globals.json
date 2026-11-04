@@ -1,0 +1,1 @@
+{"attachments":[],"errors":[{"message":"afterEach hook failed: Error: page.click: Target page, context or browser has been closed","trace":"Error: page.click: Target page, context or browser has been closed\n    at C:\\Playwright-javascript-practice\\tests\\booking.spec.js:32:20","timestamp":1793779667766}]}

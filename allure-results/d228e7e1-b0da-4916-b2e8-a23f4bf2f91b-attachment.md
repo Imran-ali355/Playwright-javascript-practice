@@ -1,0 +1,241 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: booking.spec.js >> Adactin Hotel -  >> TC-016. Verify Error Message when Last Name is Empty
+- Location: tests\booking.spec.js:60:9
+
+# Error details
+
+```
+Test timeout of 100000ms exceeded while running "beforeEach" hook.
+```
+
+```
+Error: expect(page).toHaveURL(expected) failed
+
+Expected: "https://adactinhotelapp.com/SearchHotel.php"
+Received: "https://adactinhotelapp.com/index.php"
+Timeout:  90000ms
+
+Call log:
+  - Expect "toHaveURL" with timeout 90000ms
+    178 × locator resolved to <html xmlns="http://www.w3.org/1999/xhtml">…</html>
+        - unexpected value "https://adactinhotelapp.com/index.php"
+
+```
+
+```yaml
+- table:
+  - rowgroup:
+    - 'row "AdactIn Group Adactin Group: Hotel Reservation System"':
+      - cell "AdactIn Group":
+        - img "AdactIn Group"
+      - 'cell "Adactin Group: Hotel Reservation System"':
+        - 'img "Adactin Group: Hotel Reservation System"'
+    - row:
+      - cell
+- table:
+  - rowgroup:
+    - 'row "Adactin Launches The Adactin Hotel App! Hotel Image 3 The best Free learning platform for Software Testing Now available to download for free on IOS and Android. Existing User Login - Build 1 Username Password Forgot Password? Login New User Register Here Important Note: Hotel Application has 2 builds: Build 1 Has been developed with known defects. Thus, functional test cases and automation scripts will fail on this build. Build 2 Known defects have been fixed. Thus, functional test cases and automation test scripts should pass when executed on this build. Go to Build 2 For any queries/issues please email: info@adactin.com"':
+      - cell "Adactin Launches The Adactin Hotel App! Hotel Image 3 The best Free learning platform for Software Testing Now available to download for free on IOS and Android.":
+        - paragraph: Adactin Launches The Adactin Hotel App!
+        - table:
+          - rowgroup:
+            - row "Hotel Image 3":
+              - cell "Hotel Image 3":
+                - img "Hotel Image 3"
+            - row "The best Free learning platform for Software Testing Now available to download for free on IOS and Android.":
+              - cell "The best Free learning platform for Software Testing Now available to download for free on IOS and Android."
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://testflight.apple.com/join/Ai3nVPMD
+                  - img
+              - cell:
+                - link:
+                  - /url: https://play.google.com/store/apps/details?id=com.adactin.education.hotelbooking
+                  - img
+      - 'cell "Existing User Login - Build 1 Username Password Forgot Password? Login New User Register Here Important Note: Hotel Application has 2 builds: Build 1 Has been developed with known defects. Thus, functional test cases and automation scripts will fail on this build. Build 2 Known defects have been fixed. Thus, functional test cases and automation test scripts should pass when executed on this build. Go to Build 2 For any queries/issues please email: info@adactin.com"':
+        - table:
+          - rowgroup:
+            - row "Existing User Login - Build 1":
+              - cell "Existing User Login - Build 1"
+            - row "Username":
+              - cell "Username"
+              - cell:
+                - textbox
+            - row "Password":
+              - cell "Password"
+              - cell:
+                - textbox
+            - row "Forgot Password?":
+              - cell
+              - cell "Forgot Password?":
+                - link "Forgot Password?":
+                  - /url: ForgotPassword.php
+            - row:
+              - cell
+              - cell
+            - row "Login":
+              - cell
+              - cell "Login":
+                - button "Login"
+            - row "New User Register Here":
+              - cell "New User Register Here":
+                - link "New User Register Here":
+                  - /url: Register.php
+        - table:
+          - rowgroup:
+            - row "Important Note:":
+              - cell "Important Note:"
+            - 'row "Hotel Application has 2 builds: Build 1 Has been developed with known defects. Thus, functional test cases and automation scripts will fail on this build. Build 2 Known defects have been fixed. Thus, functional test cases and automation test scripts should pass when executed on this build. Go to Build 2"':
+              - 'cell "Hotel Application has 2 builds: Build 1 Has been developed with known defects. Thus, functional test cases and automation scripts will fail on this build. Build 2 Known defects have been fixed. Thus, functional test cases and automation test scripts should pass when executed on this build. Go to Build 2"':
+                - text: "Hotel Application has 2 builds:"
+                - list:
+                  - listitem:
+                    - strong: Build 1
+                    - text: Has been developed with known defects. Thus, functional test cases and automation scripts will fail on this build.
+                  - listitem:
+                    - strong: Build 2
+                    - text: Known defects have been fixed. Thus, functional test cases and automation test scripts should pass when executed on this build.
+                    - link "Go to Build 2":
+                      - /url: ../HotelAppBuild2
+                      - strong: Go to Build 2
+            - 'row "For any queries/issues please email: info@adactin.com"':
+              - 'cell "For any queries/issues please email: info@adactin.com"':
+                - text: "For any queries/issues please email:"
+                - link "info@adactin.com":
+                  - /url: mailto:info@adactin.com
+- table:
+  - rowgroup:
+    - row:
+      - cell
+    - row "© 2026 - Adactin.com. All Rights Reserved. Adactin Group Pty. Ltd.":
+      - cell "© 2026 - Adactin.com. All Rights Reserved. Adactin Group Pty. Ltd.":
+        - text: © 2026 -
+        - link "Adactin.com":
+          - /url: http://www.adactin.com
+        - text: . All Rights Reserved. Adactin Group Pty. Ltd.
+```
+
+```
+Test timeout of 100000ms exceeded while running "afterEach" hook.
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect } from '@playwright/test';
+  2   | const searchData = require('../test_Data/searchData.json');
+  3   | const bookData = require('../test_Data/bookData.json');
+  4   | const appConfig = require('../test_Data/appConfig.json');
+  5   | import SearchPage from '../pages/Searchpage';
+  6   | import BookPage from '../pages/BookPage';
+  7   | 
+  8   | //test.use({ storageState: 'auth.json' });
+  9   | 
+  10  | test.describe('Adactin Hotel - ', () => {
+  11  |     let searchPage;
+  12  |     let bookPage;
+  13  |     const sData = searchData.validSearches[0];
+  14  | 
+  15  | 
+  16  |     test.beforeEach(async ({ page }) => {
+  17  |         searchPage = new SearchPage(page);
+  18  |         bookPage = new BookPage(page);
+  19  | 
+  20  |         await page.goto(appConfig.urls.expectedSearchURL);
+  21  |         await expect(page).toHaveURL(appConfig.urls.expectedSearchURL, { timeout: 90000 });
+  22  | 
+  23  |         await searchPage.searchHotel(sData);
+  24  | 
+  25  |         await expect(page).toHaveURL(appConfig.urls.expectedSelectURL);
+  26  | 
+  27  |         await searchPage.selectAndContinue();
+  28  |         await expect(page).toHaveURL(appConfig.urls.expectedBookURL);
+  29  |     });
+  30  | 
+> 31  |     test.afterEach(async ({ page }) => {
+      |          ^ Test timeout of 100000ms exceeded while running "afterEach" hook.
+  32  |         await page.click('text=Logout');
+  33  |     });
+  34  | 
+  35  | 
+  36  |     test('TC-014. Successful Hotel Booking with Valid Data', async ({ page }) => {
+  37  |         const bData = bookData.booking[0];
+  38  |         const [expiryMonth, fullExpiryYear] = bData.expirydate.split('/');
+  39  | 
+  40  |         await bookPage.bookHotel(bData, expiryMonth, fullExpiryYear);
+  41  |         await expect(page).toHaveURL(appConfig.urls.expectedConfirmURL, { timeout: 150000 });
+  42  | 
+  43  |         await expect(bookPage.orderNo).not.toHaveValue('');
+  44  |     });
+  45  | 
+  46  | 
+  47  | 
+  48  |     test('TC-015. Verify Error Message when First Name is Empty', async ({ page }) => {
+  49  | 
+  50  |         const bData = { ...bookData.booking[0], firstname: '' };
+  51  |         const [expiryMonth, fullExpiryYear] = bData.expirydate.split('/');
+  52  | 
+  53  |         await bookPage.bookHotel(bData, expiryMonth, fullExpiryYear);
+  54  | 
+  55  |         const firstNameError = page.locator('#first_name_span');
+  56  |         await expect(firstNameError).toBeVisible();
+  57  |     });
+  58  | 
+  59  | 
+  60  |     test('TC-016. Verify Error Message when Last Name is Empty', async ({ page }) => {
+  61  |         const bData = { ...bookData.booking[0], lastname: '' };
+  62  |         const [expiryMonth, fullExpiryYear] = bData.expirydate.split('/');
+  63  | 
+  64  |         await bookPage.bookHotel(bData, expiryMonth, fullExpiryYear);
+  65  | 
+  66  |         const lastNameError = page.locator('#last_name_span');
+  67  |         await expect(lastNameError).toBeVisible();
+  68  |     });
+  69  | 
+  70  | 
+  71  |     test('TC-017. Verify Error Message with Invalid Credit Card Number', async ({ page }) => {
+  72  |         const bData = { ...bookData.booking[0], creditcardnumber: '12345' };
+  73  |         const [expiryMonth, fullExpiryYear] = bData.expirydate.split('/');
+  74  | 
+  75  |         await bookPage.bookHotel(bData, expiryMonth, fullExpiryYear);
+  76  | 
+  77  |         const ccError = page.locator('#cc_num_span');
+  78  |         await expect(ccError).toContainText('Please Enter your 16 Digit Credit Card Number');
+  79  |     });
+  80  | 
+  81  | 
+  82  |     test('TC-018. Verify Hotel Summary Details are Displayed on Booking Page', async ({ page }) => {
+  83  |         await expect(page.locator('#hotel_name_dis')).not.toHaveValue('');
+  84  |         await expect(page.locator('#location_dis')).not.toHaveValue('');
+  85  |         await expect(page.locator('#room_num_dis')).not.toHaveValue('');
+  86  |         await expect(page.locator('#total_price_dis')).not.toHaveValue('');
+  87  |     });
+  88  | 
+  89  | 
+  90  |     test('TC-019. Verify Cancel Button redirects back to Select Page', async ({ page }) => {
+  91  |         const cancelButton = page.locator('#cancel');
+  92  |         if (await cancelButton.isVisible()) {
+  93  |             await cancelButton.click();
+  94  |             await expect(page).toHaveURL(appConfig.urls.expectedSelectURL);
+  95  |         }
+  96  |     });
+  97  | 
+  98  | 
+  99  | 
+  100 |     test.skip('TC-020. Verify User can Logout directly from Booking Page', async ({ page }) => {
+  101 |         await bookPage.logoutAndReturn();
+  102 |         await expect(page).toHaveURL(appConfig.urls.expectedindexURL);
+  103 |     });
+  104 | 
+  105 | });
+```
